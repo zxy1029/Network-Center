@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+	<meta charset="UTF-8">
+	<title>预约套餐</title>
+	<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0">
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<script src="js/jquery.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<style> 
+		.btn-lg { width: 31%; }
+		.btn-success { width: 96%; }
+		.select { margin: 0 auto; width: 96.5%; }
+		.submit { margin: 10% auto; width: 96.5%; }
+		/*.panel-title{ font-size: 2em; line-height: 2em;}*/
+	</style>
+	<script>
+		$(document).ready(function(){
+			$(".btn_S").click(function(){
+				$("#btn_Z").removeClass("disabled");
+			});
+		});
+
+		window.onload=function()
+		{
+			var selectedButton = document.getElementsByClassName("btn_S");
+			var selectedRedio = document.getElementsByClassName("radio_Z");
+			for(var i=0;i<selectedButton.length;i++){
+				!function(i){
+					selectedButton[i].addEventListener('click',function(){
+						// alert(i);
+						selectedRedio[i].checked = true;
+					});
+				}(i);
+			}
+		};
+	</script>
+</head>
+<body class="table-responsive">
+	<div class="panel panel-success">
+		<div class="panel-heading">
+			<h3 class="panel-title text-center">预约套餐</h3>
+		</div>
+		<div class="panel-body">
+			<h4>当前套餐：<small>20G/30天</small></h4>
+			<h4>剩余流量：<small>11G</small></h4>
+			<h4>截止日期：<small>2017年11月2日</small></h4>
+			<hr>
+			<h3>选择套餐</h3>
+			<div class="select">
+				<button type="button" class="btn btn-default btn-lg btn_S ">10G/1月</button>
+				<button type="button" class="btn btn-default btn-lg btn_S">20G/1月</button>
+				<button type="button" class="btn btn-default btn-lg btn_S">30G/1月</button>
+			</div>
+			<div class="Z_hidden hidden">
+				<div class="radio">
+					<label>
+						<input type="radio" class="radio_Z" name="optionsRadios" id="optionsRadios1" value="2" checked>
+						10G/10元
+					</label>
+				</div>
+				<div class="radio">
+					<label>
+						<input type="radio" class="radio_Z" name="optionsRadios" id="optionsRadios2" value="4">
+						20G/20元
+					</label>
+				</div>
+				<div class="radio">
+					<label>
+						<input type="radio" class="radio_Z" name="optionsRadios" id="optionsRadios3" value="3" >
+						30G/30元
+					</label>
+				</div>
+			</div>
+			<div class="submit">
+				<button type="button" id="btn_Z" class="btn btn-success btn-lg btn-block disabled">提交</button>
+			</div>
+			<div class="tips">
+				<ol>
+					<li><small>本功能仅限本校本科生使用。</small></li>
+					<li><small>此处的一个月意为流量一个周期30天。</small></li>
+					<li><small>新的计费套餐将在下次系统结算时自动生效并按新套餐扣取月基本费。</small></li>
+					<li><small>您可以多次预约套餐，系统将以最后一次预约操作为准进行处理。</small></li>
+				</ol>
+			</div>
+		</div>	
+	</div>
+</body>
+</html>
